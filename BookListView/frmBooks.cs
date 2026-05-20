@@ -96,8 +96,43 @@ namespace BookListView
                 {
                     // 新增項目到借書清單
                     lstBorrow.Items.Add(strBookname);
+                    lvwBooks.Items[lvwBooks.SelectedIndices[0]].ForeColor = Color.Gray;//表示已借出
                 }
             }
+        }
+
+        private void lstBorrow_DoubleClick(object sender, EventArgs e)
+        {
+            if (lstBorrow.SelectedItem == null) return;
+
+            // 取得當前選中的書名
+            string selectedBook = lstBorrow.SelectedItem.ToString();
+
+            // 跳出確認視窗
+            DialogResult dr = MessageBox.Show($"確定要歸還《{selectedBook}》嗎？", "還書確認", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                // 1. 將書名從借書清單中移除
+                lstBorrow.Items.Remove(selectedBook);
+
+                // 2. 延伸功能：還書後，要把 ListView 裡對應的那本書顏色恢復成黑色！
+                // 我們用一個 for 迴圈去尋找 ListView 裡哪一本書的名字跟被歸還的書名一樣
+                for (int i = 0; i < lvwBooks.Items.Count; i++)
+                {
+                    if (lvwBooks.Items[i].Text == selectedBook)
+                    {
+                        lvwBooks.Items[i].ForeColor = Color.Black; // 恢復字體顏色為黑色
+                        lvwBooks.Items[i].BackColor = Color.White; // 恢復背景顏色為白色
+                        break; // 找到並恢復後就可以跳出迴圈了
+                    }
+                }
+            }
+        }
+
+        private void lvwBooks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

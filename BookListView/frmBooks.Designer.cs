@@ -31,47 +31,42 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBooks));
             this.pnlTools = new System.Windows.Forms.Panel();
-            this.grpView = new System.Windows.Forms.GroupBox();
             this.grpBorrow = new System.Windows.Forms.GroupBox();
             this.lstBorrow = new System.Windows.Forms.ListBox();
+            this.grpView = new System.Windows.Forms.GroupBox();
             this.cmbView = new System.Windows.Forms.ComboBox();
             this.imgL = new System.Windows.Forms.ImageList(this.components);
             this.imgS = new System.Windows.Forms.ImageList(this.components);
+            this.pnlView = new System.Windows.Forms.Panel();
             this.lvwBooks = new System.Windows.Forms.ListView();
             this.pnlTools.SuspendLayout();
-            this.grpView.SuspendLayout();
             this.grpBorrow.SuspendLayout();
+            this.grpView.SuspendLayout();
+            this.pnlView.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTools
             // 
+            this.pnlTools.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.pnlTools.Controls.Add(this.grpBorrow);
             this.pnlTools.Controls.Add(this.grpView);
             this.pnlTools.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlTools.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.pnlTools.Location = new System.Drawing.Point(463, 0);
+            this.pnlTools.Location = new System.Drawing.Point(618, 0);
+            this.pnlTools.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlTools.Name = "pnlTools";
-            this.pnlTools.Size = new System.Drawing.Size(337, 450);
+            this.pnlTools.Size = new System.Drawing.Size(449, 562);
             this.pnlTools.TabIndex = 0;
-            // 
-            // grpView
-            // 
-            this.grpView.Controls.Add(this.cmbView);
-            this.grpView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpView.Location = new System.Drawing.Point(0, 0);
-            this.grpView.Name = "grpView";
-            this.grpView.Size = new System.Drawing.Size(337, 69);
-            this.grpView.TabIndex = 0;
-            this.grpView.TabStop = false;
-            this.grpView.Text = "檢視方式:";
             // 
             // grpBorrow
             // 
             this.grpBorrow.Controls.Add(this.lstBorrow);
             this.grpBorrow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpBorrow.Location = new System.Drawing.Point(0, 69);
+            this.grpBorrow.Location = new System.Drawing.Point(0, 86);
+            this.grpBorrow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grpBorrow.Name = "grpBorrow";
-            this.grpBorrow.Size = new System.Drawing.Size(337, 381);
+            this.grpBorrow.Padding = new System.Windows.Forms.Padding(5);
+            this.grpBorrow.Size = new System.Drawing.Size(449, 476);
             this.grpBorrow.TabIndex = 1;
             this.grpBorrow.TabStop = false;
             this.grpBorrow.Text = "借書清單";
@@ -80,19 +75,35 @@
             // 
             this.lstBorrow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstBorrow.FormattingEnabled = true;
-            this.lstBorrow.ItemHeight = 24;
-            this.lstBorrow.Location = new System.Drawing.Point(3, 29);
+            this.lstBorrow.ItemHeight = 30;
+            this.lstBorrow.Location = new System.Drawing.Point(5, 37);
+            this.lstBorrow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lstBorrow.Name = "lstBorrow";
-            this.lstBorrow.Size = new System.Drawing.Size(331, 349);
+            this.lstBorrow.Size = new System.Drawing.Size(439, 434);
             this.lstBorrow.TabIndex = 0;
+            this.lstBorrow.DoubleClick += new System.EventHandler(this.lstBorrow_DoubleClick);
+            // 
+            // grpView
+            // 
+            this.grpView.Controls.Add(this.cmbView);
+            this.grpView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grpView.Location = new System.Drawing.Point(0, 0);
+            this.grpView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpView.Name = "grpView";
+            this.grpView.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpView.Size = new System.Drawing.Size(449, 86);
+            this.grpView.TabIndex = 0;
+            this.grpView.TabStop = false;
+            this.grpView.Text = "檢視方式:";
             // 
             // cmbView
             // 
             this.cmbView.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbView.FormattingEnabled = true;
-            this.cmbView.Location = new System.Drawing.Point(6, 31);
+            this.cmbView.Location = new System.Drawing.Point(8, 39);
+            this.cmbView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbView.Name = "cmbView";
-            this.cmbView.Size = new System.Drawing.Size(325, 32);
+            this.cmbView.Size = new System.Drawing.Size(432, 38);
             this.cmbView.TabIndex = 1;
             this.cmbView.SelectedIndexChanged += new System.EventHandler(this.cmbView_SelectedIndexChanged);
             // 
@@ -123,35 +134,50 @@
             this.imgS.Images.SetKeyName(7, "Book8.bmp");
             this.imgS.Images.SetKeyName(8, "Book1.bmp");
             // 
+            // pnlView
+            // 
+            this.pnlView.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.pnlView.Controls.Add(this.lvwBooks);
+            this.pnlView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlView.Location = new System.Drawing.Point(0, 0);
+            this.pnlView.Name = "pnlView";
+            this.pnlView.Padding = new System.Windows.Forms.Padding(10);
+            this.pnlView.Size = new System.Drawing.Size(618, 562);
+            this.pnlView.TabIndex = 2;
+            // 
             // lvwBooks
             // 
             this.lvwBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvwBooks.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lvwBooks.HideSelection = false;
             this.lvwBooks.LargeImageList = this.imgL;
-            this.lvwBooks.Location = new System.Drawing.Point(0, 0);
+            this.lvwBooks.Location = new System.Drawing.Point(10, 10);
+            this.lvwBooks.Margin = new System.Windows.Forms.Padding(4);
             this.lvwBooks.Name = "lvwBooks";
-            this.lvwBooks.Size = new System.Drawing.Size(463, 450);
+            this.lvwBooks.Size = new System.Drawing.Size(598, 542);
             this.lvwBooks.SmallImageList = this.imgS;
-            this.lvwBooks.TabIndex = 1;
+            this.lvwBooks.TabIndex = 2;
             this.lvwBooks.UseCompatibleStateImageBehavior = false;
-            this.lvwBooks.ItemActivate += new System.EventHandler(this.lvwBooks_ItemActivate);
+            this.lvwBooks.SelectedIndexChanged += new System.EventHandler(this.lvwBooks_SelectedIndexChanged);
             // 
             // frmBooks
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lvwBooks);
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1067, 562);
+            this.Controls.Add(this.pnlView);
             this.Controls.Add(this.pnlTools);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmBooks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "圖書管理程式";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmBooks_FormClosed);
             this.Load += new System.EventHandler(this.frmBooks_Load);
             this.pnlTools.ResumeLayout(false);
-            this.grpView.ResumeLayout(false);
             this.grpBorrow.ResumeLayout(false);
+            this.grpView.ResumeLayout(false);
+            this.pnlView.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -165,6 +191,7 @@
         private System.Windows.Forms.ComboBox cmbView;
         private System.Windows.Forms.ImageList imgL;
         private System.Windows.Forms.ImageList imgS;
+        private System.Windows.Forms.Panel pnlView;
         private System.Windows.Forms.ListView lvwBooks;
     }
 }
