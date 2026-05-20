@@ -159,6 +159,7 @@
             this.lvwBooks.TabIndex = 2;
             this.lvwBooks.UseCompatibleStateImageBehavior = false;
             this.lvwBooks.SelectedIndexChanged += new System.EventHandler(this.lvwBooks_SelectedIndexChanged);
+            this.lvwBooks.DoubleClick += new System.EventHandler(this.lvwBooks_ItemActivate);
             // 
             // frmBooks
             // 
