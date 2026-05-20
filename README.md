@@ -6,6 +6,7 @@
 
 <img width="1397" height="602" alt="image" src="https://github.com/user-attachments/assets/254b937d-5b82-4435-8d7c-c00970f2f455" />
 
+### 檢視方式
 
 #### 1.大圖示
 
